@@ -17,16 +17,17 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Install Lean
         uses: leanprover/lean-action@v1
         with:
-          auto-config: true
-          # We set this to true so it generates the manifest for us
-          use-lake-update: true
-          use-mathlib-cache: true
+          auto-config: false # We will handle the config steps manually below
+          use-mathlib-cache: false # We will run cache get manually after update
+
+      - name: Generate Manifest and Get Cache
+        run: |
+          lake update
+          lake exe cache get
 
       - name: Build project API documentation
         run: lake -R -Kenv=dev build Siat:docs
@@ -39,6 +40,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-
 
