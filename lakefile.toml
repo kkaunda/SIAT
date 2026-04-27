@@ -2,6 +2,9 @@ name = "siat"
 version = "0.1.0"
 defaultTargets = ["Siat"]
 
+[leanOptions]
+pp.unicode.fun = true
+
 [[require]]
 name = "mathlib"
 git = "https://github.com"
@@ -15,3 +18,5 @@ roots = ["Main_Standalone", "Bedrock", "Invariance", "Main"]
 name = "docgen4"
 git = "https://github.com"
 rev = "main"
+
+
