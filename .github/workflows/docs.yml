@@ -20,18 +20,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install elan
-        run: |
-          curl https://githubusercontent.com -sSf | sh -s -- -y --default-toolchain none
-          echo "$HOME/.elan/bin" >> $GITHUB_PATH
-
-      - name: Install Toolchain
-        run: |
-          elan toolchain install $(cat lean-toolchain)
-          elan default $(cat lean-toolchain)
-
-      - name: Get Mathlib cache
-        run: lake exe cache get || true
+      - name: Install Lean
+        uses: leanprover/lean-action@v1
+        with:
+          # This automatically reads your lean-toolchain file
+          use-lake-update: false
+          use-mathlib-cache: true
 
       - name: Build project API documentation
         run: lake -R -Kenv=dev build Siat:docs
@@ -44,5 +38,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
 
 
