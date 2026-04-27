@@ -1,0 +1,21 @@
+name = "siat"
+version = "0.1.0"
+defaultTargets = ["Siat"]
+
+[leanOptions]
+pp.unicode.fun = true
+
+[[require]]
+name = "mathlib"
+git = "https://github.com"
+
+[[lean_lib]]
+name = "Siat"
+srcDir = "."
+# These are your root modules
+roots = ["Main_Standalone", "Bedrock", "Invariance", "Main"]
+
+[[require]]
+scope = "leanprover-community"
+name = "doc-gen4"
+rev = "main"
