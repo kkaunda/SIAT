@@ -19,3 +19,8 @@ roots = ["Main_Standalone", "Bedrock", "Invariance", "Main"]
 scope = "leanprover-community"
 name = "doc-gen4"
 rev = "main"
+
+[[require]]
+name = "doc-gen4"
+git = "https://github.com"
+rev = "main"
