@@ -12,7 +12,7 @@
       "inherited": false
     },
     {
-      "name": "doc-gen4",
+      "name": "docgen4",
       "type": "git",
       "subDir": "",
       "rev": "main",

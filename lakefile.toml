@@ -12,7 +12,6 @@ srcDir = "."
 roots = ["Main_Standalone", "Bedrock", "Invariance", "Main"]
 
 [[require]]
-scope = "leanprover-community"
-name = "doc-gen4"
+name = "docgen4"
+git = "https://github.com"
 rev = "main"
-
