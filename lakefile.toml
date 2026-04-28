@@ -5,10 +5,6 @@ defaultTargets = ["Siat"]
 [leanOptions]
 pp.unicode.fun = true
 
-[[require]]
-name = "mathlib"
-git = "https://github.com"
-
 [[lean_lib]]
 name = "Siat"
 srcDir = "."
@@ -16,7 +12,10 @@ roots = ["Main_Standalone", "Bedrock", "Invariance", "Main"]
 
 [[require]]
 name = "docgen4"
-git = "https://github.com"
+git = "https://github.com/leanprover/doc-gen4"
 rev = "main"
 
-
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "master"
