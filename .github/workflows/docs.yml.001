@@ -17,37 +17,27 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Install Lean
         uses: leanprover/lean-action@v1
         with:
-          auto-config: true
-          use-mathlib-cache: true
+          auto-config: false # We will handle the config steps manually below
+          use-mathlib-cache: false # We will run cache get manually after update
+
+      - name: Generate Manifest and Get Cache
+        run: |
+          lake update
+          lake exe cache get
 
       - name: Build project API documentation
         run: lake -R -Kenv=dev build Siat:docs
 
-      - name: Assemble Final Website
-        run: |
-          # 1. Create the temporary folder that GitHub will host
-          mkdir -p final_site
-          
-          # 2. Copy your landing page files
-          if [ -d home_page ]; then
-            cp -r home_page/* final_site/
-          fi
-          
-          # 3. Move the Lean docs into the 'docs' subfolder
-          mkdir -p final_site/docs
-          cp -r .lake/build/doc/* final_site/docs/
-
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:
-          path: final_site
+          path: .lake/build/doc
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+

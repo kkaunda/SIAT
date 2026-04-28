@@ -1,0 +1,2 @@
+<!-- This will now point to your generated documentation -->
+<a href="./docs/index.html">View Documentation</a>
