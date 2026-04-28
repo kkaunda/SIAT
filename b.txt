@@ -1,9 +1,0 @@
-.github
-b.txt
-Bedrock.lean
-Invariance.lean
-lakefile.lean
-LICENSE
-Main.lean
-Main_Standalone.lean
-README.md
