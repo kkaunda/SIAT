@@ -2,53 +2,56 @@
 <html lang="en-US">
   <head>
     <meta charset="UTF-8">
-    <title>SIAT Project</title>
+    <title>SIAT Project WIP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- GitHub Markdown CSS for professional styling -->
+    
+    <!-- Professional GitHub Markdown Styling -->
     <link rel="stylesheet" href="https://cloudflare.com">
+    
     <!-- Markdown Parser Library -->
     <script src="https://jsdelivr.net"></script>
+
     <style>
       body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: auto; padding: 20px; }
-      .page-header { color: #fff; text-align: center; background-color: #157878; background-image: linear-gradient(120deg, #155799, #159957); padding: 5rem 2rem; border-radius: 6px; }
+      .page-header { color: #fff; text-align: center; background-color: #157878; background-image: linear-gradient(120deg, #155799, #159957); padding: 5rem 2rem; border-radius: 6px; margin-bottom: 2rem; }
       .project-name { font-size: 3.25rem; margin-top: 0; margin-bottom: 0.1rem; }
       .project-tagline { font-size: 1.25rem; margin-bottom: 2rem; font-weight: normal; opacity: 0.7; }
-      .btn { display: inline-block; margin: 0.5rem; color: rgba(255, 255, 255, 0.7); background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 0.3rem; padding: 0.75rem 1rem; text-decoration: none; transition: all 0.2s; }
+      .btn { display: inline-block; margin: 0.5rem; color: rgba(255, 255, 255, 0.7); background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 0.3rem; padding: 0.75rem 1rem; text-decoration: none; transition: all 0.2s; font-weight: bold; }
       .btn:hover { color: #fff; background-color: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.3); }
-      main { padding: 2rem 0; }
-      /* Ensures the rendered markdown matches the site width */
-      .markdown-body { box-sizing: border-box; min-width: 200px; max-width: 980px; margin: 0 auto; padding: 45px; }
+      
+      /* Markdown Container Styling */
+      .markdown-body { box-sizing: border-box; min-width: 200px; max-width: 980px; margin: 0 auto; padding: 45px; border: 1px solid #ddd; border-radius: 6px; background-color: #fff; }
+      @media (max-width: 767px) { .markdown-body { padding: 15px; } }
     </style>
   </head>
   <body>
     <header class="page-header">
-      <h1 class="project-name">SIAT</h1>
-      <h2 class="project-tagline">A Formalization of</h2>
+      <h1 class="project-name">project-name-SIAT</h1>
+      <h2 class="project-tagline">Formalization of this...tagline small</h2>
       <a href="https://github.com/kkaunda/SIAT/" class="btn">View on GitHub</a>
       <a href="./docs/index.html" class="btn">View Documentation</a>
-      <a href="https://doi.org" class="btn">Paper</a>
+      <a href="https://doi.org" class="btn">Zenodo Archive</a>
     </header>
 
-    <!-- This is where your README.md will be displayed -->
     <main id="readme-content" class="markdown-body">
       <p>Loading project overview from README.md...</p>
     </main>
 
     <script>
-      // The script fetches the README.md from your main directory
-      // Note: In the final site structure, README is one level up from index.html
+      // Fetches the README.md from the root of your site
       fetch('./README.md')
         .then(response => {
-          if (!response.ok) throw new Error('Could not find README.md');
+          if (!response.ok) throw new Error('README.md not found at site root');
           return response.text();
         })
         .then(text => {
+          // Modern marked.parse() method
           document.getElementById('readme-content').innerHTML = marked.parse(text);
         })
         .catch(err => {
           console.error(err);
           document.getElementById('readme-content').innerHTML = 
-            "<h2>About the Project</h2><p>This repository provides a machine-checked formalization of ....</p>";
+            "<h2>About the Project</h2><p>Formalization of the ... .</p>";
         });
     </script>
   </body>
