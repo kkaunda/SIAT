@@ -2,59 +2,191 @@
 <html lang="en-US">
   <head>
     <meta charset="UTF-8">
-    <title>SIAT Project WIP</title>
+    <title>SIAT Project: Twin Prime Reduction</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <!-- Professional GitHub Markdown Styling -->
+    <!-- Professional GitHub-style styling -->
     <link rel="stylesheet" href="https://cloudflare.com">
-    
-    <!-- Markdown Parser Library -->
-    <script src="https://jsdelivr.net"></script>
 
     <style>
-      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: auto; padding: 20px; }
+      body { font-size: 1.25rem; }
+
+      body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; line-height: 1.6; max-width: 900px; margin: auto; padding: 20px; background-color: #f6f8fa; }
       .page-header { color: #fff; text-align: center; background-color: #157878; background-image: linear-gradient(120deg, #155799, #159957); padding: 5rem 2rem; border-radius: 6px; margin-bottom: 2rem; }
       .project-name { font-size: 3.25rem; margin-top: 0; margin-bottom: 0.1rem; }
       .project-tagline { font-size: 1.25rem; margin-bottom: 2rem; font-weight: normal; opacity: 0.7; }
       .btn { display: inline-block; margin: 0.5rem; color: rgba(255, 255, 255, 0.7); background-color: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 0.3rem; padding: 0.75rem 1rem; text-decoration: none; transition: all 0.2s; font-weight: bold; }
       .btn:hover { color: #fff; background-color: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.3); }
-      
-      /* Markdown Container Styling */
       .markdown-body { box-sizing: border-box; min-width: 200px; max-width: 980px; margin: 0 auto; padding: 45px; border: 1px solid #ddd; border-radius: 6px; background-color: #fff; }
       @media (max-width: 767px) { .markdown-body { padding: 15px; } }
     </style>
   </head>
-  <body>
+  <body>  
     <header class="page-header">
-      <h1 class="project-name">project-name-SIAT</h1>
-      <h2 class="project-tagline">Formalization of this...tagline small</h2>
+      <h1 class="project-name">Structural Invariance and Algebraic Totality</h1>
+      <h2 class="project-tagline">A formalization of the Twin Prime Conjecture Reduction in Lean 4</h2>
       <a href="https://github.com/kkaunda/SIAT/" class="btn">View on GitHub</a>
       <a href="./docs/index.html" class="btn">View Documentation</a>
-      <a href="https://doi.org" class="btn">Zenodo Archive</a>
+      <a href="https://doi.org" class="btn">Paper</a>
     </header>
 
-    <main id="readme-content" class="markdown-body">
-      <p>Loading project overview from README.md...</p>
-    </main>
+    <main class="markdown-body">
+<ul>
+<li>
+<p><strong>Author:</strong> Kajani Kaunda</p>
+</li>
+<li>
+<p><strong>Lean Version:</strong> Lean 4 (Mathlib)</p>
+</li>
+<li>
+<p><strong>Most recent Toolchain used:</strong> leanprover/lean4:v4.30.0-rc2</p>
+</li>
+<li>
+<p><strong>Status:</strong> Fully Verified.</p>
+</li>
+</ul>
 
-    <script>
-      // Fetches the README.md from the root of your site
-      fetch('./README.md')
-        .then(response => {
-          if (!response.ok) throw new Error('README.md not found at site root');
-          return response.text();
-        })
-        .then(text => {
-          // Modern marked.parse() method
-          document.getElementById('readme-content').innerHTML = marked.parse(text);
-        })
-        .catch(err => {
-          console.error(err);
-          document.getElementById('readme-content').innerHTML = 
-            "<h2>About the Project</h2><p>Formalization of the ... .</p>";
-        });
-    </script>
+<h1>Overview</h1>
+<p>This repository provides a machine-checked reduction of the Twin Prime Conjecture (TPC) within the Lean 4 interactive theorem prover. The proof establishes the infinitude of twin primes as a <i>structural necessity</i> derived from the modular properties of the prime sieve.</p>
+
+<p>The formalization leverages the <b>General Law of Invariance (GLI)</b>—a framework developed through <b>Cayley Table Theory (CTT)</b>—to execute the reduction. By applying GLI, the project establishes the infinitude of twin primes as a structural necessity within the prime sieve's modular mechanics.</p>
+<hr />
+<h2>Accompanying Paper</h2>
+<p>The mathematical theory and formalization strategy are detailed in the following article:</p>
+<ul>
+<li><strong>Title:</strong> Structural Invariance and Algebraic Totality: A Formal Reduction of the Twin Prime Conjecture</li>
+<li><strong>Archival Host:</strong> <a href="https://zenodo.org/">Zenodo</a></li>
+
+<li><strong>Paper DOI:</strong> <a href="https://doi.org/10.5281/zenodo.19919962"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.19919962.svg" alt="DOI" /></a></li>
+
+<li><strong>Repository DOI:</strong> <a href="https://doi.org/10.5281/zenodo.19921378"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.19921378.svg" alt="DOI" /></a></li>
+
+</ul>
+<p>This work supersedes the conceptual foundations explored in the author&#39;s previous preprints.</p>
+<hr />
+<h2>Repository Structure</h2>
+<p>The formalization is organized into modular components to ensure transparency and maintainability:</p>
+<ol>
+<li><strong>Main.lean:</strong>
+This file performs the master TPC reduction by applying the General Law of Invariance to the set of natural primes. (Requires <code>import Invariance</code>).</li>
+
+<li><strong>Main_Standalone.lean:</strong> 
+A zero-setup, self-contained formalization of the Twin Prime Conjecture. This file consolidates all definitions, the GLI framework, and the final theorems into a single source to enable instant verification in the <a href="https://lean-lang.org">Lean 4 Web Playground</a>. (Requires <code>import Mathlib</code>).</li>
+
+<li><strong>Invariance.lean:</strong>
+The core &#34;Engine&#34; of the proof. It defines the General Law of Invariance (GLI) and proves pattern persistence in periodic systems via structural induction. (Requires <code>import Mathlib</code>).</li>
+<li><strong>Bedrock.lean:</strong>
+Contains the foundational algebraic environment, including the construction of the Cayley Table (Set J), the Mapping Lemma, and Sieve-6 periodicity. (Requires <code>import Mathlib</code>).</li>
+</ol>
+<hr />
+<h2>Lean Source file location</h2>
+<p>The Lean source files are located in root folder of the SIAT repository.</p>
+<hr />
+<h2>Building and Verifying the Code</h2>
+<h3>Option A: Lean Web Editor (Zero Installation)</h3>
+<p><em>Best for a quick, single-file review.</em></p>
+<ol>
+<li>Visit the <a href="https://live.lean-lang.org/">Lean 4 Web Playground</a>.</li>
+<li>Open <strong>Main_Standalone.lean</strong> from this repository and copy its entire content.</li>
+<li>Paste the code into the web editor.</li>
+<li>The Lean kernel will automatically verify the code. A <strong>&#34;No goals&#34;</strong> message in the Infoview indicates a successful verification.</li>
+</ol>
+<h3>Option B: Local Build with Lake (Windows/Linux/macOS)</h3>
+<p><em>Best for verifying the entire project and checking cross-file dependencies.</em></p>
+<p>Ensure you have <a href="https://lean-lang.org">Lean 4 installed</a>. Then run:</p>
+<pre><code class="language-bash"># Clone the repository
+git clone https://github.com
+cd SIAT
+
+# Download pre-compiled Mathlib binaries
+lake exe cache get
+
+# Build and verify the entire project
+lake build
+</code></pre>
+<p><strong>Note on single-file verification:</strong><br />
+To verify only a specific file without a full project build, use:</p>
+<pre><code class="language-bash">lake env lean &lt;filename&gt;.lean
+</code></pre>
+<h3>Option C: Integration into an existing Project  (For current Lean 4 users)</h3>
+<p><em>Best if you already have a local Mathlib-enabled Lean 4 project.</em></p>
+<p>If you prefer not to clone a new repository, you can drop the <code>.lean</code> files directly into your existing project:</p>
+<ol>
+<li>Copy the <code>.lean</code> files into your project&#39;s root or <code>src/</code> folder.</li>
+<li>Ensure all files are kept in the <strong>same directory</strong> so that internal imports (e.g., <code>Main.lean</code> importing <code>Invariance.lean</code>) remain intact.</li>
+<li>Lean will automatically use your project&#39;s existing toolchain and Mathlib version to verify the files.</li>
+</ol>
+<hr />
+<p><strong>Note:</strong> The source code is fully compatible with standard Lean 4 environments, such as VS Code (with the Lean 4 extension) or GitHub Codespaces.</p>
+<hr />
+<h2>Key Formalized Contributions</h2>
+<ul>
+<li><strong>Interaction Totality:</strong> Verification that the Cayley Table mapping exhaustively captures all prime distances.</li>
+<li><strong>The GLI Engine:</strong> Formal proof that any localized modular configuration established at the origin must recur infinitely often.</li>
+<li><strong>The Adjacency Lock:</strong> Algebraic verification that for a gap of 2, adjacency is a mandatory consequence of parity.</li>
+<li><strong>TPC Reduction:</strong> A machine-checked proof path showing that Sieve Periodicity implies Twin Prime Infinitude.</li>
+</ul>
+
+
+
+<div style="border-left: 5px solid #2c3e50; background-color: #f8f9fa; padding: 15px; margin: 20px 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <h3 style="margin-top: 0; color: #2c3e50;">Technical Note: The Ground-State Exception</h3>
+    <p style="line-height: 1.6;">
+        The <strong>Adjacency Lock</strong> applies to all primes <i>p > 3</i>. The set <code>{3, 5, 7}</code> is the unique "Ground-State" exception where three primes exist with a gap of 2 because 3 is its own prime factor. 
+    </p>
+    <p style="line-height: 1.6; margin-bottom: 0;">
+        For all subsequent configurations, the <strong>modular DNA</strong> of the Sieve ensures that in any sequence of three gap-2 candidates, at least one is a multiple of 3, and the intervening spaces are multiples of 2. Thus, the Adjacency Lock remains a <strong>Positional Constant</strong> for the remainder of the infinite series, ensuring that the <i>termination</i> of twin primes is a logical nullity.
+    </p>
+</div>
+
+
+
+
+
+
+<hr />
+<h2>Mathematical Context</h2>
+<p>The Structural Invariance and Algebraic Totality (SIAT) framework shifts the investigation from prime magnitudes to the DNA of the Sieve algorithm. By arranging primes in an infinite Cayley Table, we leverage Magnitude Independence to show that prime gaps are structural invariants. This methodology effectively resolves the &#34;Adjacency Gap&#34; and the &#34;Parity Problem&#34; by moving the TPC from the realm of probabilistic heuristics into the domain of verified Structural Algebraic Necessity.</p>
+<hr />
+<h2>Future Work</h2>
+<ul>
+<li><strong>Lean Blueprint:</strong> An interactive dependency graph of the proof structure &#8212; supplementary documentation.</li>
+<li><strong>Polignac Generalization:</strong> Extending the ABLE Box geometry to higher-dimensional manifolds for all even gaps g &gt; 2.</li>
+</ul>
+<hr />
+<h2>References</h2>
+<ul>
+<li>
+<p><a href="https://lean-lang.org">Lean 4 Theorem Prover</a></p>
+</li>
+<li>
+<p>
+<a href="https://leanprover.zulipchat.com/">Lean Zulip community</a> An invaluable resource.</p>
+</li>
+<li>
+<p>
+<a href="https://github.com/leanprover-community/LeanProject">A Blueprint-driven Lean 4 Project Template</a> by the Lean Prover Community.</p>
+</li>
+<li>
+<p>
+<a href="https://github.com/PatrickMassot/leanblueprint/">LeanBlueprint</a> by Patrick Massot et al.</p>
+</li>
+</ul>
+<hr />
+<h2>Acknowledgements and Dedication</h2>
+<ul>
+<li>
+<p><strong>The Giants:</strong> This work acknowledges the foundations laid by Euclid, Eratosthenes, de Polignac, and the modern breakthroughs by the countless researchers whose collective efforts have advanced our understanding of prime distributions.</p>
+</li>
+<li>
+<p><strong>Dedication:</strong> To all those without whom this work would not have been possible.</p>
+</li>
+</ul>
+<hr />
+<p>&#169; 2026 Kajani Kaunda. This project is provided for academic advancement in formalized mathematics.</p>
+    </main>
   </body>
 </html>
+
 
 
