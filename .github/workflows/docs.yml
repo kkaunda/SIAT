@@ -27,7 +27,7 @@ jobs:
           use-mathlib-cache: true
 
       - name: Build project API documentation
-        run: lake -R -Kenv=dev build Siat:docs
+        run: lake -R -Kenv=dev build SIAT:docs
 
       - name: Assemble Final Website
         run: |

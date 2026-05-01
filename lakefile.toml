@@ -1,6 +1,6 @@
 name = "siat"
 version = "0.1.0"
-defaultTargets = ["Siat"]
+defaultTargets = ["SIAT"]
 
 [leanOptions]
 pp.unicode.fun = true
