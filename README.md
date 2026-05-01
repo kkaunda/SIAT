@@ -8,7 +8,7 @@ A Formal Reduction of the Twin Prime Conjecture in Lean 4.
 * **Most recent Toolchain used:** leanprover/lean4:v4.30.0-rc2
 
 * **Status:** Fully Verified.
-
+ 
 
 ## Overview
 This repository provides a machine-checked reduction of the Twin Prime Conjecture (TPC) within the Lean 4 interactive theorem prover. The proof establishes the infinitude of twin primes as a *structural necessity* derived from the modular properties of the prime sieve.
