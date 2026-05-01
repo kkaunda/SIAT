@@ -80,16 +80,15 @@
 <h2>Repository Structure</h2>
 <p>The formalization is organized into modular components to ensure transparency and maintainability:</p>
 <ol>
+
 <li><strong>Main.lean:</strong>
 This file performs the master TPC reduction by applying the General Law of Invariance to the set of natural primes. </li>
 
-<li><strong>Main_Standalone.lean:</strong> 
 A zero-setup, self-contained formalization of the Twin Prime Conjecture. This file consolidates all definitions, the GLI framework, and the final theorems into a single source to enable instant verification in the <a href="https://lean-lang.org">Lean 4 Web Playground</a>. </li>
 
-<li><strong>Invariance.lean:</strong>
-The core &#34;Engine&#34; of the proof. It defines the General Law of Invariance (GLI) and proves pattern persistence in periodic systems via structural induction. </li>
 <li><strong>Bedrock.lean:</strong>
 Contains the foundational algebraic environment, including the construction of the Cayley Table (Set J), the Mapping Lemma, and Sieve-6 periodicity. </li>
+
 </ol>
 <hr />
 <h2>Source code location</h2>
@@ -100,7 +99,7 @@ Contains the foundational algebraic environment, including the construction of t
 <p><em>Best for a quick, single-file review.</em></p>
 <ol>
 <li>Visit the <a href="https://live.lean-lang.org/">Lean 4 Web Playground</a>.</li>
-<li>Open <strong>Main_Standalone.lean</strong> from this repository and copy its entire content.</li>
+<li>Open <strong>Main.lean</strong> from this repository and copy its entire content.</li>
 <li>Paste the code into the web editor.</li>
 <li>The Lean kernel will automatically verify the code. A <strong>&#34;No goals&#34;</strong> message in the Infoview indicates a successful verification.</li>
 </ol>
