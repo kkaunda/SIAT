@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KN48ZREN9M"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+         
+    gtag('config', 'G-KN48ZREN9M');
+    </script>
+
+    <script src="https://app.secureprivacy.ai/script/69f3e85b1e0c5d0a174b6f6e.js"></script>
+
+
     <meta charset="UTF-8">
     <title>SIAT Project: Twin Prime Reduction</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,19 +81,19 @@
 <p>The formalization is organized into modular components to ensure transparency and maintainability:</p>
 <ol>
 <li><strong>Main.lean:</strong>
-This file performs the master TPC reduction by applying the General Law of Invariance to the set of natural primes. (Requires <code>import Invariance</code>).</li>
+This file performs the master TPC reduction by applying the General Law of Invariance to the set of natural primes. </li>
 
 <li><strong>Main_Standalone.lean:</strong> 
-A zero-setup, self-contained formalization of the Twin Prime Conjecture. This file consolidates all definitions, the GLI framework, and the final theorems into a single source to enable instant verification in the <a href="https://lean-lang.org">Lean 4 Web Playground</a>. (Requires <code>import Mathlib</code>).</li>
+A zero-setup, self-contained formalization of the Twin Prime Conjecture. This file consolidates all definitions, the GLI framework, and the final theorems into a single source to enable instant verification in the <a href="https://lean-lang.org">Lean 4 Web Playground</a>. </li>
 
 <li><strong>Invariance.lean:</strong>
-The core &#34;Engine&#34; of the proof. It defines the General Law of Invariance (GLI) and proves pattern persistence in periodic systems via structural induction. (Requires <code>import Mathlib</code>).</li>
+The core &#34;Engine&#34; of the proof. It defines the General Law of Invariance (GLI) and proves pattern persistence in periodic systems via structural induction. </li>
 <li><strong>Bedrock.lean:</strong>
-Contains the foundational algebraic environment, including the construction of the Cayley Table (Set J), the Mapping Lemma, and Sieve-6 periodicity. (Requires <code>import Mathlib</code>).</li>
+Contains the foundational algebraic environment, including the construction of the Cayley Table (Set J), the Mapping Lemma, and Sieve-6 periodicity. </li>
 </ol>
 <hr />
-<h2>Lean Source file location</h2>
-<p>The Lean source files are located in root folder of the SIAT repository.</p>
+<h2>Source code location</h2>
+<p>The Lean source files are located in the <strong>/SIAT</strong> directory of this repository.</p>
 <hr />
 <h2>Building and Verifying the Code</h2>
 <h3>Option A: Lean Web Editor (Zero Installation)</h3>
@@ -101,23 +114,20 @@ cd SIAT
 # Download pre-compiled Mathlib binaries
 lake exe cache get
 
-# Build and verify the entire project
-lake build
+# To verify the SIAT library and all proofs, run:
+lake build SIAT
 </code></pre>
-<p><strong>Note on single-file verification:</strong><br />
+<p>You can also use the shorthand <b>lake build</b>, provided your environment 
+is configured for the default target.</p>
+<p><strong>On single-file verification:</strong><br />
 To verify only a specific file without a full project build, use:</p>
-<pre><code class="language-bash">lake env lean &lt;filename&gt;.lean
+<pre><code class="language-bash">lake env lean SIAT/&lt;filename&gt;.lean
 </code></pre>
-<h3>Option C: Integration into an existing Project  (For current Lean 4 users)</h3>
-<p><em>Best if you already have a local Mathlib-enabled Lean 4 project.</em></p>
-<p>If you prefer not to clone a new repository, you can drop the <code>.lean</code> files directly into your existing project:</p>
-<ol>
-<li>Copy the <code>.lean</code> files into your project&#39;s root or <code>src/</code> folder.</li>
-<li>Ensure all files are kept in the <strong>same directory</strong> so that internal imports (e.g., <code>Main.lean</code> importing <code>Invariance.lean</code>) remain intact.</li>
-<li>Lean will automatically use your project&#39;s existing toolchain and Mathlib version to verify the files.</li>
-</ol>
-<hr />
+
 <p><strong>Note:</strong> The source code is fully compatible with standard Lean 4 environments, such as VS Code (with the Lean 4 extension) or GitHub Codespaces.</p>
+
+<p>A minimum of 8GB RAM is recommended for local builds.</p>
+
 <hr />
 <h2>Key Formalized Contributions</h2>
 <ul>

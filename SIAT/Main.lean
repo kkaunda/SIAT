@@ -1,7 +1,4 @@
-import Mathlib
-
-/-
-import Invariance
+import SIAT.Invariance
 
 /-!
 # Main.lean
@@ -134,4 +131,3 @@ Theoretical Impact:
 Serves as the `Computational Notary.` It provides the reader with immediate confirmation that the journey to the Master TPC Reduction has been successfully traversed and machine-checked in its entirety.
 -/
 theorem Logic_of_TPC_is_Verified : True := by trivial
--/

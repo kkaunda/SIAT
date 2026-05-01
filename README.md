@@ -31,18 +31,17 @@ This work supersedes the conceptual foundations explored in the author's previou
 The formalization is organized into modular components to ensure transparency and maintainability:
 
    1. **Main.lean:**
-   This file performs the master TPC reduction by applying the General Law of Invariance to the set of natural primes. (Requires <code>import Invariance</code>).
+   This file performs the master TPC reduction by applying the General Law of Invariance to the set of natural primes. 
    2. **Main_Standalone.lean:**
-   A zero-setup, self-contained formalization of the Twin Prime Conjecture. This file consolidates all definitions, the GLI framework, and the final theorems into a single source to enable instant verification in the [Lean 4 Web Playground editor](https://live.lean-lang.org/). (Requires <code>import Mathlib</code>).
+   A zero-setup, self-contained formalization of the Twin Prime Conjecture. This file consolidates all definitions, the GLI framework, and the final theorems into a single source to enable instant verification in the [Lean 4 Web Playground editor](https://live.lean-lang.org/). 
    3. **Invariance.lean:**
-   The core "Engine" of the proof. It defines the General Law of Invariance (GLI) and proves pattern persistence in periodic systems via structural induction. (Requires <code>import Mathlib</code>).
+   The core "Engine" of the proof. It defines the General Law of Invariance (GLI) and proves pattern persistence in periodic systems via structural induction. 
    4. **Bedrock.lean:**
-   Contains the foundational algebraic environment, including the construction of the Cayley Table (Set J), the Mapping Lemma, and Sieve-6 periodicity. (Requires <code>import Mathlib</code>).
-
+   Contains the foundational algebraic environment, including the construction of the Cayley Table (Set J), the Mapping Lemma, and Sieve-6 periodicity. 
 ------------------------------
-## Lean Source file location
-   The Lean source files are located in root folder of the SIAT repository.
 
+## Source code location
+The Lean source files are located in the **/SIAT** directory of this repository.
 
 ------------------------------
 
@@ -61,7 +60,7 @@ The formalization is organized into modular components to ensure transparency an
 
 Ensure you have [Lean 4 installed](https://lean-lang.org). Then run:
 
-```bash
+```
 # Clone the repository
 git clone https://github.com
 cd SIAT
@@ -69,28 +68,24 @@ cd SIAT
 # Download pre-compiled Mathlib binaries
 lake exe cache get
 
-# Build and verify the entire project
-lake build
+# To verify the SIAT library and all proofs, run:
+
+lake build SIAT
 ```
 
-**Note on single-file verification:**  
+You can also use the shorthand `lake build`, provided your environment is configured for the default target.
+
+**On single-file verification:**  
 To verify only a specific file without a full project build, use:
-```bash
-lake env lean <filename>.lean
 ```
-
-### Option C: Integration into an existing Project  (For current Lean 4 users)
-*Best if you already have a local Mathlib-enabled Lean 4 project.*
-
-If you prefer not to clone a new repository, you can drop the `.lean` files directly into your existing project:
-
-1. Copy the `.lean` files into your project's root or `src/` folder. 
-2. Ensure all files are kept in the **same directory** so that internal imports (e.g., `Main.lean` importing `Invariance.lean`) remain intact.
-3. Lean will automatically use your project's existing toolchain and Mathlib version to verify the files.
+lake env lean SIAT/<filename>.lean
+```
 
 ---
 
 **Note:** The source code is fully compatible with standard Lean 4 environments, such as VS Code (with the Lean 4 extension) or GitHub Codespaces.
+
+A minimum of 8GB RAM is recommended for local builds. 
 
 ------------------------------
 ## Key Formalized Contributions

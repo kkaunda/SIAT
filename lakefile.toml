@@ -6,9 +6,8 @@ defaultTargets = ["Siat"]
 pp.unicode.fun = true
 
 [[lean_lib]]
-name = "Siat"
-srcDir = "."
-roots = ["Main_Standalone", "Bedrock", "Invariance", "Main"]
+name = "SIAT"
+roots = ["SIAT"]
 
 [[require]]
 name = "docgen4"
